@@ -1,11 +1,11 @@
 {
-  "name": "social.network-api",
+  "name": "social-network-api",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "description": "social networking routes",
+  "main": "server.js",
   "scripts": {
-    "seed": "node utils/seeds.js",
-    "start": "nodemon server.js"
+    "start": "node server.js",
+    "seed": "node utils/seeds.js"
   },
   "keywords": [],
   "author": "",
