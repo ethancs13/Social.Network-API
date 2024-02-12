@@ -1,11 +1,10 @@
 const connection = require('../config/connection');
-const { Thought, User } = require('../models');
+const { User, Thought } = require('../models');
 const { randomUsers, randomThoughts } = require('./data');
 
 connection.on('error', (err) => console.error(err));
 
 connection.once('open', async () => {
-  console.log('Connected to database.');
   try {
     let userCheck = await connection.db
       .listCollections({ name: 'users' })
@@ -21,12 +20,18 @@ connection.once('open', async () => {
       await connection.dropCollection('thoughts');
     }
 
-    const users = randomUsers(8);
-    const thoughts = randomThoughts(8);
+    // create random users/thoughts
+    const users = randomUsers(5);
+    const thoughts = randomThoughts(5);
 
-    // Insert
     await User.collection.insertMany(users);
     await Thought.collection.insertMany(thoughts);
+
+    console.table("Users", users);
+    console.table("Thoughts", thoughts);
+
+    // Exits the process.
+    process.exit(0);
   } catch (err) {
     console.error(err);
   }
