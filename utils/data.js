@@ -34,10 +34,10 @@ const usernames = [
   // email array
   const emails = ['gmail', 'hotmail', 'yahoo', 'outlook'];
   
-  // Gets random item
+  // random item
   const randomArrayItem = (arr) => arr[Math.floor(Math.random() * arr.length)];
   
-  // Returns random user and email
+  // random user and email
   const randomUsers = (numUsers) => {
     const usersArray = [];
     for (let i = 0; i < numUsers; i++) {
@@ -49,7 +49,7 @@ const usernames = [
     return usersArray;
   };
   
-  // Returns random user/reaction
+  // random user/reaction
   const randomReactions = (numReactions) => {
     const reactionsArray = [];
     for (let i = 0; i < numReactions; i++) {
@@ -61,7 +61,7 @@ const usernames = [
     return reactionsArray;
   };
   
-  // Returns random thought with 3 random usernames/reactions
+  // random thought
   const randomThoughts = (numThoughts) => {
     const thoughtsArray = [];
     for (let i = 0; i < numThoughts; i++) {
