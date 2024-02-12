@@ -48,7 +48,7 @@ const randomUsers = (numUsers) => {
     const index = Math.floor(Math.random() * usernamesCopy.length);
 
     // Selects current index number
-    const sameUsername = usernamesCopy[i];
+    const sameUsername = usernamesCopy[index];
     usersArray.push({
       username: randomArrayItem(usernames),
       email: `${randomArrayItem(usernames)}@${randomArrayItem(emails)}.com`,
