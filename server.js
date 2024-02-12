@@ -11,7 +11,7 @@ app.use(express.urlencoded({ entended: true }));
 app.use(express.json());
 
 // routes
-// app.use(routes);
+app.use(routes);
 
 // on connection
 db.once('open', () => {
