@@ -2,6 +2,7 @@ const express = require('express');
 const db = require('./config/connection');
 const routes = require('./routes');
 
+// Sets port and create instance of express
 const PORT = (process.env.PORT = 3001);
 const app = express();
 
@@ -9,10 +10,10 @@ const app = express();
 app.use(express.urlencoded({ entended: true }));
 app.use(express.json());
 
-// use routes from folder
-app.use(routes);
+// routes
+// app.use(routes);
 
-
+// on connection
 db.once('open', () => {
   app.listen(PORT, () => {
     console.log(`Server running on port ${PORT}`);
