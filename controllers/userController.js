@@ -1,7 +1,7 @@
-const { User } = require('../models/User');
+const User = require('../models/User');
 
 module.exports = {
-  // all
+  // Finds all users.
   async getUsers(req, res) {
     try {
       const users = await User.find();
@@ -11,7 +11,7 @@ module.exports = {
     }
   },
 
-  // one
+  // Finds a single user.
   async getSingleUser(req, res) {
     try {
       const user = await User.findOne({ _id: req.params.userId });
@@ -28,7 +28,7 @@ module.exports = {
     }
   },
 
-  // new
+  // Creates a new user.
   async createUser(req, res) {
     try {
       const user = await User.create(req.body);
@@ -38,7 +38,7 @@ module.exports = {
     }
   },
 
-  // by id
+  // Updates user based off ID.
   async updateUser(req, res) {
     try {
       const user = await User.findOneAndUpdate(
@@ -59,7 +59,7 @@ module.exports = {
     }
   },
 
-  // del by id
+  // Deletes user based off ID.
   async deleteUser(req, res) {
     try {
       const user = await User.findOneAndDelete({ _id: req.params.userId });
@@ -76,7 +76,7 @@ module.exports = {
     }
   },
 
-  // add friend
+  // Adds a new friend to a user's friend list.
   async addFriend(req, res) {
     try {
       const friend = await User.findOneAndUpdate(
@@ -97,10 +97,10 @@ module.exports = {
     }
   },
 
-  // delete friend
+  // Deletes friend from a specific user
   async deleteFriend(req, res) {
     try {
-      const friend = await User.findOneAndDelete(
+      const friend = await User.findOneAndUpdate(
         { _id: req.params.userId },
         { $pull: { friends: req.params.friendId } },
         { runValidators: true, new: true }

@@ -13,6 +13,11 @@ app.use(express.json());
 // routes
 app.use(routes);
 
+app.use((err, req, res, next) => {
+  console.error(err.stack);
+  res.status(500).send('Something went wrong!');
+});
+
 // on connection
 db.once('open', () => {
   app.listen(PORT, () => {
