@@ -26,9 +26,14 @@ const thoughtSchema = new Schema(
     },
   }
 );
-
+// schem for reactionCount length
 thoughtSchema.virtual('reactionCount').get(function () {
   return `${this.reactions.length}`;
+});
+
+thoughtSchema.virtual('formattedCreatedAt').get(function () {
+  // Format the createdAt date using (YYYY-MM-DD HH:MM:SS)
+  return this.createdAt.toLocaleString();
 });
 
 const Thought = model('thought', thoughtSchema);

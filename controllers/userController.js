@@ -4,6 +4,7 @@ module.exports = {
   // Finds all users.
   async getUsers(req, res) {
     try {
+      // all users
       const users = await User.find();
       res.json(users);
     } catch (err) {
@@ -14,6 +15,7 @@ module.exports = {
   // Finds a single user.
   async getSingleUser(req, res) {
     try {
+      // user with id
       const user = await User.findOne({ _id: req.params.userId });
 
       if (!user) {
@@ -41,6 +43,7 @@ module.exports = {
   // Updates user based off ID.
   async updateUser(req, res) {
     try {
+      // update by ID
       const user = await User.findOneAndUpdate(
         { _id: req.params.userId },
         { $set: req.body },

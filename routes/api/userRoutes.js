@@ -1,4 +1,6 @@
+// import router from express
 const router = require('express').Router();
+// import controllers from thoughtController
 const {
   getUsers,
   getSingleUser,
